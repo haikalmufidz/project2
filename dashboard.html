@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .calendar-nav button {
+      background-color: #1E3A8A;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      margin: 0.5rem;
+      cursor: pointer;
+    }
+    .calendar-nav button:hover {
+      background-color: #3B82F6;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-1/4 bg-gray-800 text-white p-4">
+      <h1 class="text-lg font-bold mb-4">SEKOLAH.ID</h1>
+      <div class="flex items-center mb-6">
+        <div class="bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center">
+          <span class="text-sm">#</span>
+        </div>
+        <p class="ml-3">dashboard</p>
+      </div>
+      <nav>
+        <ul>
+          <li class="mb-2">
+            <a href="dashboard.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Dashboard</a>
+          </li>
+          <li class="mb-2">
+            <a href="profile.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Profil</a>
+          </li>
+          <li class="mb-2">
+            <a href="pegawai.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Pegawai</a>
+          </li>
+          <li class="mb-2">
+            <a href="siswa.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Siswa</a>
+          </li>
+          <li class="mb-2">
+            <a href="kelas.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Kelas</a>
+          </li>
+          <li>
+            <a href="index.html" class="block px-4 py-2 text-red-400 hover:bg-red-500 hover:text-white rounded">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="w-3/4 p-6">
+      <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-2">Pengumuman</h2>
+        <p class="text-gray-600">Silahkan dilihat jadwal anda untuk semester ini pada kalender. Pastikan untuk selalu memantau kalender agar tidak ketinggalan pengumuman terbaru dan tetap terinformasi dengan semua agenda sekolah.</p>
+      </div>
+
+      <!-- Calendar -->
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Kalender</h2>
+        <div class="calendar-nav mb-4">
+          <button onclick="changeMonth(-1)">Previous</button>
+          <span id="current-month" class="font-bold">January 2025</span>
+          <button onclick="changeMonth(1)">Next</button>
+        </div>
+        <div id="calendar" class="grid grid-cols-7 gap-2">
+          <!-- Days will be rendered here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const months = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    let currentMonth = 0; // Start with January
+    let currentYear = 2025;
+
+    function renderCalendar() {
+      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+      const calendar = document.getElementById("calendar");
+      const currentMonthLabel = document.getElementById("current-month");
+
+      calendar.innerHTML = ""; // Clear previous days
+      currentMonthLabel.textContent = `${months[currentMonth]} ${currentYear}`;
+
+      // Add blank days for the first week
+      for (let i = 0; i < firstDay; i++) {
+        const blank = document.createElement("div");
+        calendar.appendChild(blank);
+      }
+
+      // Add days of the month
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayElement = document.createElement("div");
+        dayElement.textContent = day;
+        dayElement.className = "text-center border border-gray-300 rounded-lg p-2";
+        calendar.appendChild(dayElement);
+      }
+    }
+
+    function changeMonth(direction) {
+      currentMonth += direction;
+
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+
+      renderCalendar();
+    }
+
+    // Initial render
+    renderCalendar();
+  </script>
+  <script>
+    window.onload = function() {
+      const fullName = localStorage.getItem('fullName'); // Ambil nama lengkap dari Local Storage
+      if (fullName) {
+        document.getElementById('welcome-name').textContent = fullName; // Ganti nama di dashboard
+      }
+    };
+  </script>  
+</body>
+</html>

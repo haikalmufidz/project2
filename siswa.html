@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Data Siswa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function saveData() {
+            const nama = document.getElementById('nama').value;
+            const ttl = document.getElementById('ttl').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const nik = document.getElementById('nik').value;
+            const kelurahan = document.getElementById('kelurahan').value;
+            const rt = document.getElementById('rt').value;
+            const rw = document.getElementById('rw').value;
+            const wali = document.getElementById('wali').value;
+            const telepon = document.getElementById('telepon').value;
+            const kelas = document.getElementById('kelas').value;
+
+            const siswa = {
+                nama,
+                ttl,
+                gender,
+                nik,
+                kelurahan,
+                rt,
+                rw,
+                wali,
+                telepon,
+                kelas
+            };
+
+            // Simpan ke localStorage
+            const siswaList = JSON.parse(localStorage.getItem('siswaList')) || [];
+            siswaList.push(siswa);
+            localStorage.setItem('siswaList', JSON.stringify(siswaList));
+
+            alert('Data siswa berhasil disimpan!');
+            document.querySelector('form').reset();
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-1/4 bg-gray-800 text-white p-4">
+          <h1 class="text-lg font-bold mb-4">SEKOLAH.ID</h1>
+          <div class="flex items-center mb-6">
+            <div class="bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center">
+              <span class="text-sm">#</span>
+            </div>
+            <p class="ml-3">siswa</p>
+          </div>
+          <nav>
+            <ul>
+              <li class="mb-2">
+                <a href="dashboard.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Dashboard</a>
+              </li>
+              <li class="mb-2">
+                <a href="profile.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Profil</a>
+              </li>
+              <li class="mb-2">
+                <a href="pegawai.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Pegawai</a>
+              </li>
+              <li class="mb-2">
+                <a href="siswa.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Siswa</a>
+              </li>
+              <li class="mb-2">
+                <a href="kelas.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Kelas</a>
+              </li>
+              <li>
+                <a href="index.html" class="block px-4 py-2 text-red-400 hover:bg-red-500 hover:text-white rounded">Logout</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="w-3/4 bg-white shadow-lg p-6 ml-4">
+            <h1 class="text-xl font-bold mb-6">Kelola Data Siswa</h1>
+            <form onsubmit="event.preventDefault(); saveData();">
+                <!-- Form fields sama seperti sebelumnya -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="nama" class="block text-gray-700">Nama Siswa:</label>
+                        <input type="text" id="nama" name="nama" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label for="ttl" class="block text-gray-700">Tempat, Tgl Lahir:</label>
+                        <input type="text" id="ttl" name="ttl" class="w-full p-2 border rounded" required>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="gender" class="block text-gray-700">Gender:</label>
+                    <div class="flex items-center">
+                        <label class="mr-4">
+                            <input type="radio" name="gender" value="L" class="mr-1"> L
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="P" class="mr-1"> P
+                        </label>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="nik" class="block text-gray-700">NIK:</label>
+                    <input type="text" id="nik" name="nik" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mt-4">
+                    <label for="alamat" class="block text-gray-700">Alamat:</label>
+                    <div class="flex space-x-2">
+                        <select id="kelurahan" name="kelurahan" class="p-2 border rounded">
+                            <option value="Kelurahan 1">Kelurahan 1</option>
+                            <option value="Kelurahan 2">Kelurahan 2</option>
+                        </select>
+                        <input type="text" id="rt" name="rt" placeholder="RT" class="w-1/4 p-2 border rounded">
+                        <span>/</span>
+                        <input type="text" id="rw" name="rw" placeholder="RW" class="w-1/4 p-2 border rounded">
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="wali" class="block text-gray-700">Nama Wali Murid:</label>
+                    <input type="text" id="wali" name="wali" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mt-4">
+                    <label for="telepon" class="block text-gray-700">Telpon/HP Wali:</label>
+                    <input type="text" id="telepon" name="telepon" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mt-4">
+                    <label for="kelas" class="block text-gray-700">Kelas:</label>
+                    <select id="kelas" name="kelas" class="w-full p-2 border rounded" required>
+                        <option value="7-A">7-A</option>
+                        <option value="7-B">7-B</option>
+                    </select>
+                </div>
+                <div class="mt-6 flex justify-end">
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600">Simpan</button>
+                    <button type="reset" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

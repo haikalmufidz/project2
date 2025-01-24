@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Pegawai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-1/4 bg-gray-800 text-white p-4">
+      <h1 class="text-lg font-bold mb-4">SEKOLAH.ID</h1>
+      <div class="flex items-center mb-6">
+        <div class="bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center">
+          <span class="text-sm">#</span>
+        </div>
+        <p class="ml-3">pegawai</p>
+      </div>
+      <nav>
+        <ul>
+          <li class="mb-2">
+            <a href="dashboard.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Dashboard</a>
+          </li>
+          <li class="mb-2">
+            <a href="profile.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Profil</a>
+          </li>
+          <li class="mb-2">
+            <a href="pegawai.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Pegawai</a>
+          </li>
+          <li class="mb-2">
+            <a href="siswa.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Siswa</a>
+          </li>
+          <li class="mb-2">
+            <a href="kelas.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Kelas</a>
+          </li>
+          <li>
+            <a href="index.html" class="block px-4 py-2 text-red-400 hover:bg-red-500 hover:text-white rounded">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 bg-white">
+      <h2 class="text-2xl font-semibold mb-4">Daftar Pegawai</h2>
+      <p class="text-gray-600 mb-6">Home > Data Pegawai</p>
+
+      <!-- Tabel -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-300">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+              <th class="py-3 px-4 border border-gray-300 text-left">Nama</th>
+              <th class="py-3 px-4 border border-gray-300 text-left">Jabatan</th>
+              <th class="py-3 px-4 border border-gray-300 text-left">Tmp Lahir</th>
+              <th class="py-3 px-4 border border-gray-300 text-left">Tgl Lahir</th>
+              <th class="py-3 px-4 border border-gray-300 text-center">Aktif</th>
+              <th class="py-3 px-4 border border-gray-300 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-gray-100">
+              <td class="py-3 px-4 border border-gray-300">Budi Dharmawan</td>
+              <td class="py-3 px-4 border border-gray-300">Kepala Sek</td>
+              <td class="py-3 px-4 border border-gray-300">Bogor</td>
+              <td class="py-3 px-4 border border-gray-300">2000-10-11</td>
+              <td class="py-3 px-4 border border-gray-300 text-center">
+                <input type="checkbox" checked class="w-5 h-5">
+              </td>
+              <td class="py-3 px-4 border border-gray-300 text-center">
+                <a href="#" class="text-blue-500 hover:underline">View</a> | 
+                <a href="#" class="text-green-500 hover:underline">Edit</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+              <td class="py-3 px-4 border border-gray-300">Annisa Amalia</td>
+              <td class="py-3 px-4 border border-gray-300">Wakil Kepsek</td>
+              <td class="py-3 px-4 border border-gray-300">Surabaya</td>
+              <td class="py-3 px-4 border border-gray-300">2001-05-21</td>
+              <td class="py-3 px-4 border border-gray-300 text-center">
+                <input type="checkbox" checked class="w-5 h-5">
+              </td>
+              <td class="py-3 px-4 border border-gray-300 text-center">
+                <a href="#" class="text-blue-500 hover:underline">View</a> | 
+                <a href="#" class="text-green-500 hover:underline">Edit</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+              <td class="py-3 px-4 border border-gray-300">Eddy Pardiman</td>
+              <td class="py-3 px-4 border border-gray-300">Guru</td>
+              <td class="py-3 px-4 border border-gray-300">Cilacap</td>
+              <td class="py-3 px-4 border border-gray-300">1999-07-15</td>
+              <td class="py-3 px-4 border border-gray-300 text-center">
+                <input type="checkbox" class="w-5 h-5">
+              </td>
+              <td class="py-3 px-4 border border-gray-300 text-center">
+                <a href="#" class="text-blue-500 hover:underline">View</a> | 
+                <a href="#" class="text-green-500 hover:underline">Edit</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+              <td class="py-3 px-4 border border-gray-300">Nurul Hidayah</td>
+              <td class="py-3 px-4 border border-gray-300">Guru</td>
+              <td class="py-3 px-4 border border-gray-300">Depok</td>
+              <td class="py-3 px-4 border border-gray-300">2003-01-04</td>
+              <td class="py-3 px-4 border border-gray-300 text-center">
+                <input type="checkbox" checked class="w-5 h-5">
+              </td>
+              <td class="py-3 px-4 border border-gray-300 text-center">
+                <a href="#" class="text-blue-500 hover:underline">View</a> | 
+                <a href="#" class="text-green-500 hover:underline">Edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button class="mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 shadow">
+        Create
+      </button>
+    </main>
+  </div>
+</body>
+</html>

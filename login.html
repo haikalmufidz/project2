@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg w-3/5 flex">
+      <!-- Left Side -->
+      <div class="w-1/2 p-8 border-r border-gray-200">
+        <h1 class="text-2xl font-bold mb-4">Selamat Datang di Sekolah.ID</h1>
+        <p class="text-gray-600">
+          Selamat datang di platform manajemen sekolah kami. Anda dapat mengakses berbagai fitur yang tersedia di platform ini. Silahkan login untuk melanjutkan.
+        </p>
+      </div>
+      <!-- Right Side -->
+      <div class="w-1/2 p-8">
+        <h2 class="text-xl font-semibold mb-4">Silahkan Login</h2>
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label for="username" class="block text-gray-700">Username:</label>
+            <input type="text" id="username" name="username" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          </div>
+          <div>
+            <label for="password" class="block text-gray-700">Password:</label>
+            <input type="password" id="password" name="password" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="remember" class="ml-2 text-gray-700">Remember Me?</label>
+          </div>
+          <button type="submit" class="w-full bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition">Login</button>
+        </form>
+        <div id="errorMessage" class="mt-4 text-sm text-red-500 hidden">Invalid username or password, or account does not exist.</div>
+        <div class="mt-4 text-sm text-center">
+          <a href="#" class="text-blue-500 hover:underline">Forgot Password</a>
+          <span class="text-gray-500 mx-2">|</span>
+          <a href="register.html" class="text-blue-500 hover:underline">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+      const inputUsername = document.getElementById('username').value;
+      const inputPassword = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+  
+      // Ambil data pengguna dari Local Storage
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+  
+      // Periksa apakah username dan password cocok
+      const user = users.find(user => user.username === inputUsername && user.password === inputPassword);
+  
+      if (user) {
+        alert('Login successful!');
+        window.location.href = 'profile.html'; // Arahkan ke dashboard jika login berhasil
+      } else {
+        errorMessage.classList.remove('hidden'); // Tampilkan pesan kesalahan
+      }
+    });
+  </script>
+  
+</body>
+</html>

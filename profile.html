@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Informasi Sekolah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-1/4 bg-gray-800 text-white p-4">
+      <h1 class="text-lg font-bold mb-4">SEKOLAH.ID</h1>
+      <div class="flex items-center mb-6">
+        <div class="bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center">
+          <span class="text-sm">#</span>
+        </div>
+        <p class="ml-3">profile</p>
+      </div>
+      <nav>
+        <ul>
+          <li class="mb-2">
+            <a href="dashboard.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Dashboard</a>
+          </li>
+          <li class="mb-2">
+            <a href="profile.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Profil</a>
+          </li>
+          <li class="mb-2">
+            <a href="pegawai.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Pegawai</a>
+          </li>
+          <li class="mb-2">
+            <a href="siswa.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Siswa</a>
+          </li>
+          <li class="mb-2">
+            <a href="kelas.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 rounded">Kelas</a>
+          </li>
+          <li>
+            <a href="index.html" class="block px-4 py-2 text-red-400 hover:bg-red-500 hover:text-white rounded">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="flex-1 bg-white p-6">
+      <h2 class="text-2xl font-semibold mb-6">Selamat Datang di Sistem Informasi Sekolah NF</h2>
+      <p class="mb-6 text-gray-600">
+        Selamat datang di portal resmi Sistem Informasi Sekolah NF. Kami hadir untuk memberikan informasi terkait kegiatan dan prestasi siswa, serta informasi lainnya yang terkait dengan sekolah. Tetap semangat untuk belajar dan berprestasi!
+      </p>
+
+      <div class="grid grid-cols-3 gap-4">
+        <!-- Prestasi Mahasiswa -->
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-4">Prestasi Mahasiswa</h3>
+          <img src="piala1.jpg" alt="Foto Prestasi" class="w-24 h-24 mx-auto rounded-full shadow">
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-4">Prestasi Mahasiswa</h3>
+          <img src="piala2.jpg" alt="Foto Prestasi" class="w-24 h-24 mx-auto rounded-full shadow">
+        </div>
+      </div>
+
+      <div class="mt-10">
+        <h3 class="text-xl font-semibold mb-4">Kegiatan Ekstra Kurikuler</h3>
+        <div class="grid grid-cols-3 gap-4">
+          <div>
+            <h4 class="font-semibold mb-2">Pramuka</h4>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Membentuk karakter siswa yang disiplin dan mandiri.</li>
+              <li>Melatih keterampilan bertahan hidup dan kerjasama tim.</li>
+              <li>Mengembangkan kecintaan pada alam dan lingkungan.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">Seni</h4>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Menjaga kreativitas melalui seni lukis, musik, dan tari.</li>
+              <li>Menampilkan karya siswa dalam berbagai ajang seni.</li>
+              <li>Mendukung eksplorasi bakat seni yang dimiliki siswa.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">Paskibraka</h4>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Melatih jiwa kepemimpinan dan tanggung jawab siswa.</li>
+              <li>Menjadi pelopor kedisiplinan di lingkungan sekolah.</li>
+              <li>Berkontribusi dalam upacara kenegaraan dan sekolah.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
